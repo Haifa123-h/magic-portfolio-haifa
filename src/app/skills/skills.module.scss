@@ -1,0 +1,50 @@
+.page {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 90rem;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  overflow: hidden;
+  border: 1px solid rgb(148 163 184 / 20%);
+  border-radius: var(--radius-l);
+  background:
+    radial-gradient(ellipse at 10% 0%, rgb(13 148 136 / 12%), transparent 36rem),
+    linear-gradient(145deg, #071426 0%, #09182c 55%, #10172f 100%);
+  box-shadow: 0 24px 70px rgb(15 23 42 / 16%);
+}
+
+.pageHeader {
+  max-width: 54rem;
+}
+
+.eyebrow {
+  margin: 0 0 var(--static-space-12);
+  color: #70e4d6;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  color: #f5f8ff;
+  font-size: clamp(2.15rem, 5vw, 3.6rem);
+  font-weight: 750;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+.subtitle {
+  max-width: 44rem;
+  margin: var(--static-space-16) 0 0;
+  color: #b7c5d9;
+  font-size: clamp(1rem, 1.8vw, 1.12rem);
+  line-height: 1.7;
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: var(--static-space-16);
+    border-radius: var(--radius-m);
+  }
+}

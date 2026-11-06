@@ -1,5 +1,5 @@
-import { IconName } from "@/resources/icons";
-import { zones } from "tzdata";
+import type { IconName } from "@/resources/icons";
+import type { zones } from "tzdata";
 
 /**
  * IANA time zone string (e.g., 'Asia/Calcutta', 'Europe/Vienna').
@@ -21,10 +21,19 @@ export type Person = {
   role: string;
   /** Path to avatar image */
   avatar: string;
+  /** Downloadable CV path and filename */
+  cv: {
+    href: string;
+    filename: string;
+  };
   /** Email address */
   email: string;
   /** IANA time zone location */
   location: IANATimeZone;
+  /** Human-readable location */
+  locationLabel: string;
+  /** Current availability */
+  availability: string;
   /** Languages spoken */
   languages?: string[];
   /**
@@ -99,12 +108,6 @@ export interface Home extends BasePageConfig {
   image: `/images/${string}` | string;
   /** The headline of the home page */
   headline: React.ReactNode;
-  /** Featured badge, which appears above the headline */
-  featured: {
-    display: boolean;
-    title: React.ReactNode;
-    href: string;
-  };
   /** The sub text which appears below the headline */
   subline: React.ReactNode;
 }

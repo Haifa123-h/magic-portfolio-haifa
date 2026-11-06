@@ -7,8 +7,11 @@ export {
   about,
   blog,
   work,
+  skills,
   gallery,
 } from "./content";
+
+export { aboutProfile } from "./about-content";
 
 export {
   display,

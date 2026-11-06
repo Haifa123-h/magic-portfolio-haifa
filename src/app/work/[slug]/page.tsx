@@ -22,6 +22,8 @@ import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
+import { ProjectMediaGallery } from "@/components/work/ProjectMediaGallery";
+import { projectShowcase } from "@/resources/project-showcase";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -82,6 +84,8 @@ export default async function Project({
       src: person.avatar,
       "aria-label": person.name,
     })) || [];
+  const project = projectShowcase.find((item) => item.slug === post.slug);
+  const isStudentDashboardProject = post.slug === "university-exam-monitoring-system";
 
   return (
     <Column as="section" maxWidth="m" horizontal="center" gap="l">
@@ -91,8 +95,8 @@ export default async function Project({
         path={`${work.path}/${post.slug}`}
         title={post.metadata.title}
         description={post.metadata.summary}
-        datePublished={post.metadata.publishedAt}
-        dateModified={post.metadata.publishedAt}
+        datePublished={isStudentDashboardProject ? undefined : post.metadata.publishedAt}
+        dateModified={isStudentDashboardProject ? undefined : post.metadata.publishedAt}
         image={
           post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
         }
@@ -106,9 +110,12 @@ export default async function Project({
         <SmartLink href="/work">
           <Text variant="label-strong-m">Projects</Text>
         </SmartLink>
-        <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
-          {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
-        </Text>
+        {post.metadata.publishedAt && (
+          <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
+            {isStudentDashboardProject ? "Completed " : ""}
+            {formatDate(post.metadata.publishedAt)}
+          </Text>
+        )}
         <Heading variant="display-strong-m">{post.metadata.title}</Heading>
       </Column>
       <Row marginBottom="32" horizontal="center">
@@ -128,19 +135,22 @@ export default async function Project({
           </Text>
         </Row>
       </Row>
-      {post.metadata.images.length > 0 && (
+      {post.metadata.images.length > 0 && !isStudentDashboardProject && (
         <Media priority aspectRatio="16 / 9" radius="m" alt="image" src={post.metadata.images[0]} />
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <CustomMDX source={post.content} />
       </Column>
-      <Column fillWidth gap="40" horizontal="center" marginTop="40">
-        <Line maxWidth="40" />
-        <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
-          Related projects
-        </Heading>
-        <Projects exclude={[post.slug]} range={[2]} />
-      </Column>
+      {project && <ProjectMediaGallery title={project.title} media={project.media} />}
+      {!isStudentDashboardProject && (
+        <Column fillWidth gap="40" horizontal="center" marginTop="40">
+          <Line maxWidth="40" />
+          <Heading as="h2" variant="heading-strong-xl" marginBottom="24">
+            Related projects
+          </Heading>
+          <Projects exclude={[post.slug]} range={[2]} />
+        </Column>
+      )}
       <ScrollToHash />
     </Column>
   );
