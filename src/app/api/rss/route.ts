@@ -1,5 +1,5 @@
 import { getPosts } from "@/utils/utils";
-import { baseURL, blog, person } from "@/resources";
+import { baseURL, events, person } from "@/resources";
 import { NextResponse } from "next/server";
 
 // Built once with the site, like the posts it lists.
@@ -17,9 +17,9 @@ export async function GET() {
   const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${blog.title}</title>
+    <title>${events.title}</title>
     <link>${baseURL}/blog</link>
-    <description>${blog.description}</description>
+    <description>${events.description}</description>
     <language>${person.locale ?? "en"}</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${baseURL}/api/rss" rel="self" type="application/rss+xml" />
@@ -27,7 +27,7 @@ export async function GET() {
     <webMaster>${person.email || "noreply@example.com"} (${person.name})</webMaster>
     <image>
       <url>${baseURL}${person.avatar || "/images/avatar.jpg"}</url>
-      <title>${blog.title}</title>
+      <title>${events.title}</title>
       <link>${baseURL}/blog</link>
     </image>
     ${sortedPosts

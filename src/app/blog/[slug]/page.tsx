@@ -15,7 +15,7 @@ import {
   Media,
   Line,
 } from "@once-ui-system/core";
-import { baseURL, about, blog, person } from "@/resources";
+import { baseURL, about, events, person } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import { getPosts } from "@/utils/utils";
 import { canViewPath } from "@/utils/pageAccessServer";
@@ -51,7 +51,7 @@ export async function generateMetadata({
     description: post.metadata.summary,
     baseURL: baseURL,
     image: post.metadata.image || `/api/og/generate?title=${post.metadata.title}`,
-    path: `${blog.path}/${post.slug}`,
+    path: `${events.path}/${post.slug}`,
   });
   // Meta.generate writes a canonical only alongside language alternates.
   return { ...metadata, alternates: { canonical: metadata.openGraph.url } };
@@ -70,7 +70,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
   }
 
   // Password-protected: render nothing without access (RouteGuard shows the form).
-  if (!(await canViewPath(`${blog.path}/${post.slug}`))) {
+  if (!(await canViewPath(`${events.path}/${post.slug}`))) {
     return null;
   }
 
@@ -87,7 +87,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           <Schema
             as="blogPosting"
             baseURL={baseURL}
-            path={`${blog.path}/${post.slug}`}
+            path={`${events.path}/${post.slug}`}
             title={post.metadata.title}
             description={post.metadata.summary}
             datePublished={post.metadata.publishedAt}
@@ -104,7 +104,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           />
           <Column maxWidth="s" gap="16" horizontal="center" align="center">
             <SmartLink href="/blog">
-              <Text variant="label-strong-m">Blog</Text>
+              <Text variant="label-strong-m">Events</Text>
             </SmartLink>
             <Text variant="body-default-xs" onBackground="neutral-weak" marginBottom="12">
               {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
@@ -146,7 +146,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             <CustomMDX source={post.content} />
           </Column>
 
-          <ShareSection title={post.metadata.title} url={`${baseURL}${blog.path}/${post.slug}`} />
+          <ShareSection title={post.metadata.title} url={`${baseURL}${events.path}/${post.slug}`} />
 
           <Column fillWidth gap="40" horizontal="center" marginTop="40">
             <Line maxWidth="40" />

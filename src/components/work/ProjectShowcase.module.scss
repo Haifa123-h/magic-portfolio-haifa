@@ -63,6 +63,37 @@
   line-height: 1.55;
 }
 
+.stack {
+  display: grid;
+  gap: var(--static-space-12);
+}
+
+.stack h3 {
+  margin: 0;
+  color: var(--neutral-strong);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.stackGroups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--static-space-12);
+}
+
+.stackGroup {
+  display: grid;
+  align-content: start;
+  gap: var(--static-space-8);
+}
+
+.stackGroup h4 {
+  margin: 0;
+  color: var(--neutral-weak);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 .context strong,
 .date strong {
   color: var(--neutral-strong);
@@ -91,6 +122,13 @@
   color: var(--neutral-strong);
   font-size: 0.83rem;
   font-weight: 600;
+}
+
+.dateInline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--static-space-4);
 }
 
 .technology svg {

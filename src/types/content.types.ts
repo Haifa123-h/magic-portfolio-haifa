@@ -221,10 +221,9 @@ export interface About extends BasePageConfig {
 }
 
 /**
- * Blog page configuration.
- * @description Configuration for the Blog page, including metadata and navigation label.
+ * Events page configuration.
  */
-export interface Blog extends BasePageConfig {}
+export interface EventsPage extends BasePageConfig {}
 
 /**
  * Work/projects page configuration.

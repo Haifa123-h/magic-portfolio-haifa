@@ -1,0 +1,104 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: var(--static-space-12);
+}
+
+.photo {
+  min-width: 0;
+  margin: 0;
+}
+
+.photoButton {
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-m);
+  background: #030916;
+  cursor: zoom-in;
+}
+
+.photoButton:focus-visible,
+.closeButton:focus-visible {
+  outline: 2px solid var(--brand-strong);
+  outline-offset: 3px;
+}
+
+.photoButton img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 200ms ease;
+}
+
+.photoButton:hover img {
+  transform: scale(1.02);
+}
+
+.photo figcaption,
+.lightboxContent p {
+  margin: var(--static-space-8) 0 0;
+  color: var(--neutral-weak);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.lightbox {
+  position: fixed;
+  width: min(96vw, 1440px);
+  max-width: none;
+  max-height: 94dvh;
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  overflow: auto;
+  border: 1px solid var(--neutral-alpha-medium);
+  border-radius: var(--radius-l);
+  background: var(--page-background);
+  color: var(--neutral-strong);
+  box-shadow: 0 30px 100px rgb(0 0 0 / 55%);
+}
+
+.lightbox::backdrop {
+  background: rgb(1 6 15 / 84%);
+  backdrop-filter: blur(5px);
+}
+
+.lightboxContent {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--static-space-8);
+}
+
+.lightboxContent img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: calc(94dvh - 5rem);
+  object-fit: contain;
+}
+
+.closeButton {
+  position: sticky;
+  top: 0;
+  justify-self: end;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid var(--neutral-alpha-medium);
+  border-radius: var(--radius-m);
+  background: var(--surface-background);
+  color: var(--neutral-strong);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photoButton img {
+    transition: none;
+  }
+}

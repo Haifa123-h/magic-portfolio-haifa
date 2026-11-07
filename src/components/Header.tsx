@@ -5,7 +5,7 @@ import { Fragment, useEffect, useState } from "react";
 
 import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
 
-import { routes, display, person, about, blog, work, skills, gallery } from "@/resources";
+import { routes, display, person, about, events, work, skills, gallery } from "@/resources";
 import type { IconName } from "@/resources/icons";
 import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.scss";
@@ -49,7 +49,7 @@ const navItems: { href: keyof typeof routes; icon: IconName; label: string }[] =
   { href: "/about", icon: "person", label: about.label },
   { href: "/skills", icon: "javascript", label: skills.label },
   { href: "/work", icon: "grid", label: work.label },
-  { href: "/blog", icon: "book", label: blog.label },
+  { href: "/blog", icon: "book", label: events.label },
   { href: "/gallery", icon: "gallery", label: gallery.label },
 ];
 

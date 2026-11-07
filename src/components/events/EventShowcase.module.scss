@@ -1,0 +1,96 @@
+.event {
+  display: grid;
+  min-width: 0;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  padding: clamp(1.1rem, 3vw, 2rem);
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-l);
+  background:
+    linear-gradient(135deg, rgb(29 198 201 / 4%), transparent 42%),
+    var(--surface-background);
+  box-shadow: 0 16px 46px rgb(0 0 0 / 12%);
+}
+
+.header {
+  display: grid;
+  gap: var(--static-space-8);
+}
+
+.type {
+  margin: 0;
+  color: var(--brand-strong);
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 0;
+  color: var(--neutral-strong);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.whereWhen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--static-space-8);
+  margin: var(--static-space-4) 0 0;
+  color: var(--neutral-weak);
+  font-size: 0.95rem;
+}
+
+.organizations {
+  display: grid;
+  gap: var(--static-space-12);
+  margin: 0;
+}
+
+.organizations div,
+.participation {
+  display: grid;
+  gap: var(--static-space-4);
+}
+
+.organizations dt,
+.participation strong {
+  color: var(--neutral-strong);
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.organizations dd,
+.participation span {
+  margin: 0;
+  color: var(--neutral-weak);
+  line-height: 1.55;
+}
+
+.participation {
+  margin: 0;
+}
+
+.takeaways {
+  display: grid;
+  gap: var(--static-space-8);
+}
+
+.takeaways h3 {
+  margin: 0;
+  color: var(--neutral-strong);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.takeaways ul {
+  display: grid;
+  gap: var(--static-space-8);
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--neutral-weak);
+  line-height: 1.55;
+}

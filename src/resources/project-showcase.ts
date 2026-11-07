@@ -1,6 +1,11 @@
 export type ProjectTechnology = {
   name: string;
-  logo: "react" | "vite";
+  logo?: "react" | "vite" | "openjdk" | "springboot" | "spring" | "html5" | "javascript" | "thymeleaf" | "json" | "maven";
+};
+
+export type ProjectTechnologyGroup = {
+  name: string;
+  technologies: ProjectTechnology[];
 };
 
 export type ProjectMediaItem =
@@ -29,10 +34,13 @@ export type ProjectShowcaseItem = {
   context?: string;
   contribution?: string;
   technologies: ProjectTechnology[];
+  technologyGroups?: ProjectTechnologyGroup[];
   completionDate?: string;
   completionDateTime?: string;
+  completionDateLabel?: string;
   media: ProjectMediaItem[];
   repositoryUrl?: string;
+  repositoryLinkLabel?: string;
 };
 
 export const projectShowcase: ProjectShowcaseItem[] = [
@@ -104,11 +112,74 @@ export const projectShowcase: ProjectShowcaseItem[] = [
   {
     number: "02",
     slug: "ajsd-chatbot-countries-knowledge-base",
-    category: "Chatbot",
+    category: "Java Development · Conversational Chatbot · Backend Development",
     title: "AJSD Chatbot — Countries Knowledge Base",
-    description: "An AJSD chatbot focused on the Countries Knowledge Base.",
+    description:
+      "A rule-based conversational chatbot developed with Spring Boot that provides basic information about countries through an interactive, guided dialogue. Users can explore a country's capital city, national animal, and national flower.",
     technologies: [],
-    media: [],
+    technologyGroups: [
+      {
+        name: "Backend",
+        technologies: [
+          { name: "Java 17", logo: "openjdk" },
+          { name: "Spring Boot 3.2.5", logo: "springboot" },
+          { name: "Spring MVC", logo: "spring" },
+        ],
+      },
+      {
+        name: "Frontend",
+        technologies: [
+          { name: "HTML", logo: "html5" },
+          { name: "CSS" },
+          { name: "JavaScript", logo: "javascript" },
+          { name: "Thymeleaf", logo: "thymeleaf" },
+          { name: "Fetch API" },
+        ],
+      },
+      {
+        name: "Data and session management",
+        technologies: [
+          { name: "JSON", logo: "json" },
+          { name: "Jackson" },
+          { name: "HttpSession" },
+        ],
+      },
+      {
+        name: "Build and dependency management",
+        technologies: [{ name: "Maven", logo: "maven" }],
+      },
+    ],
+    completionDate: "23 June 2026",
+    completionDateTime: "2026-06-23",
+    completionDateLabel: "Completed:",
+    media: [
+      {
+        type: "image",
+        src: "/images/projects/ajsd-chatbot-countries-knowledge-base/china.png",
+        title: "China chatbot conversation",
+        alt: "Countries chatbot conversation showing the guided country selection and information about China's capital, national animal, and national flower.",
+        width: 1365,
+        height: 768,
+      },
+      {
+        type: "image",
+        src: "/images/projects/ajsd-chatbot-countries-knowledge-base/canada.png",
+        title: "Canada chatbot conversation",
+        alt: "Countries chatbot conversation showing the guided country selection and information about Canada's capital, national animal, and national flower.",
+        width: 1365,
+        height: 768,
+      },
+      {
+        type: "image",
+        src: "/images/projects/ajsd-chatbot-countries-knowledge-base/united-states.png",
+        title: "United States chatbot conversation",
+        alt: "Countries chatbot conversation showing the guided country selection and information about the United States' capital, national animal, and national flower.",
+        width: 1365,
+        height: 768,
+      },
+    ],
+    repositoryUrl: "https://github.com/Haifa123-h/Chatbot-countries",
+    repositoryLinkLabel: "View Source Code",
   },
   {
     number: "03",

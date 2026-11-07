@@ -1,47 +1,48 @@
-import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
-import { Newsletter } from "@/components";
-import { Posts } from "@/components/blog/Posts";
-import { baseURL, blog, person, newsletter } from "@/resources";
+import { Column, Heading, Meta, Schema, Text } from "@once-ui-system/core";
+import { baseURL, events, person } from "@/resources";
+import { EventShowcase } from "@/components/events/EventShowcase";
+import { eventShowcases } from "@/resources/events";
 
 export async function generateMetadata() {
   const metadata = Meta.generate({
-    title: blog.title,
-    description: blog.description,
-    baseURL: baseURL,
-    image: `/api/og/generate?title=${encodeURIComponent(blog.title)}`,
-    path: blog.path,
+    title: events.title,
+    description: events.description,
+    baseURL,
+    image: `/api/og/generate?title=${encodeURIComponent(events.title)}`,
+    path: events.path,
   });
-  // Meta.generate writes a canonical only alongside language alternates.
   return { ...metadata, alternates: { canonical: metadata.openGraph.url } };
 }
 
-export default function Blog() {
+export default function Events() {
   return (
     <Column maxWidth="m" paddingTop="24">
       <Schema
-        as="blogPosting"
+        as="webPage"
         baseURL={baseURL}
-        title={blog.title}
-        description={blog.description}
-        path={blog.path}
-        image={`/api/og/generate?title=${encodeURIComponent(blog.title)}`}
+        title={events.title}
+        description={events.description}
+        path={events.path}
+        image={`/api/og/generate?title=${encodeURIComponent(events.title)}`}
         author={{
           name: person.name,
-          url: `${baseURL}/blog`,
+          url: `${baseURL}${events.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
       />
-      <Heading marginBottom="l" variant="heading-strong-xl" marginLeft="24">
-        {blog.title}
-      </Heading>
-      <Column fillWidth flex={1} gap="40" s={{ gap: "24" }}>
-        <Posts range={[1, 1]} thumbnail />
-        <Posts range={[2, 3]} columns="2" thumbnail direction="column" />
-        <Newsletter marginBottom="l" />
-        <Heading as="h2" variant="heading-strong-xl" marginLeft="l">
-          Earlier posts
+      <Column fillWidth gap="16" marginBottom="40" paddingX="24">
+        <Heading marginBottom="8" variant="heading-strong-xl">
+          Events
         </Heading>
-        <Posts range={[4]} columns="2" />
+        <Text variant="body-default-l" onBackground="neutral-weak">
+          Professional experiences, meaningful connections, and knowledge gained beyond the
+          classroom.
+        </Text>
+      </Column>
+      <Column fillWidth gap="32" paddingX="24">
+        {eventShowcases.map((event) => (
+          <EventShowcase event={event} key={event.id} />
+        ))}
       </Column>
     </Column>
   );

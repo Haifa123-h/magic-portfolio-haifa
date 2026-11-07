@@ -6,4 +6,17 @@ images: []
 
 ## Overview
 
-An AJSD chatbot focused on the Countries Knowledge Base.
+A rule-based conversational chatbot developed with Spring Boot that provides basic information about countries through an interactive, guided dialogue. Users can explore a country's capital city, national animal, and national flower.
+
+## Key features
+
+- Guided conversational interaction using a finite-state machine.
+- Country selection and validation against a JSON knowledge base.
+- Information retrieval for capital cities, national animals, and national flowers.
+- Three information options and an option to retrieve all available information.
+- Session-based conversation tracking using HttpSession.
+- REST API integration through `POST /chat`, with a request such as `{ "message": "France" }`.
+- Dynamic frontend updates without full-page reloads.
+- Support for 20 countries, with an extensible knowledge base.
+- Conversation flow: `ASK_INTENT` waits for the user to start; `SELECT_COUNTRY` requests and validates a country; `CHOOSE_OPTION` lets the user select the information to retrieve.
+- Commands: `start` begins the conversation; `clear` resets the current conversation.

@@ -5,7 +5,7 @@ export {
   newsletter,
   home,
   about,
-  blog,
+  events,
   work,
   skills,
   gallery,

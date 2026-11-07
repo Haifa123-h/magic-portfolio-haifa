@@ -1,4 +1,4 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import { About, EventsPage, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Row, Text } from "@once-ui-system/core";
 import { aboutProfile } from "./about-content";
 
@@ -123,13 +123,12 @@ const about: About = {
   },
 };
 
-const blog: Blog = {
+const events: EventsPage = {
   path: "/blog",
-  label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  label: "Events",
+  title: "Events",
+  description:
+    "Professional experiences, meaningful connections, and knowledge gained beyond the classroom.",
 };
 
 const work: Work = {
@@ -153,13 +152,6 @@ const projects = {
   label: "Projects",
   title: "Projects",
   description: "Portfolio projects and work samples.",
-};
-
-const events = {
-  path: "/events",
-  label: "Events",
-  title: "Events",
-  description: "Events, workshops, and community activities.",
 };
 
 const activities = {
@@ -220,4 +212,4 @@ const gallery: Gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, skills, projects, events, activities, gallery };
+export { person, social, newsletter, home, about, events, work, skills, projects, activities, gallery };
