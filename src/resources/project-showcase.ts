@@ -181,13 +181,4 @@ export const projectShowcase: ProjectShowcaseItem[] = [
     repositoryUrl: "https://github.com/Haifa123-h/Chatbot-countries",
     repositoryLinkLabel: "View Source Code",
   },
-  {
-    number: "03",
-    slug: "task-manager",
-    category: "Task management",
-    title: "Task Manager",
-    description: "A task management project.",
-    technologies: [],
-    media: [],
-  },
 ];

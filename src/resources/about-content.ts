@@ -24,6 +24,12 @@ export const aboutProfile = {
       issueDate: "June 8, 2026",
       verificationUrl: "https://coursera.org/share/c1648bf6da080d90a71865f70d97aef6",
     },
+    {
+      title: "16-hour SI & Cybersecurity Fundamentals Bootcamp",
+      issuer: "American Corner Sousse, with support from the U.S. Embassy Tunis",
+      issueDate: "October 31, 2026",
+      verificationUrl: "/certificates/cybersecurity-fundamentals-bootcamp.pdf",
+    },
   ],
   languages: [
     { name: "Arabic", proficiency: "Native" },

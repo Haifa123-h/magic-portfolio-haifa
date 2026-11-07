@@ -1,14 +1,14 @@
 .event {
   display: grid;
   min-width: 0;
-  gap: clamp(1.25rem, 3vw, 2rem);
-  padding: clamp(1.1rem, 3vw, 2rem);
+  gap: clamp(1rem, 2vw, 1.5rem);
+  padding: clamp(1rem, 2.4vw, 1.5rem);
   border: 1px solid var(--neutral-alpha-weak);
-  border-radius: var(--radius-l);
+  border-radius: var(--radius-m);
   background:
     linear-gradient(135deg, rgb(29 198 201 / 4%), transparent 42%),
     var(--surface-background);
-  box-shadow: 0 16px 46px rgb(0 0 0 / 12%);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
 }
 
 .header {
@@ -28,7 +28,7 @@
 .header h2 {
   margin: 0;
   color: var(--neutral-strong);
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.4rem, 2.6vw, 1.8rem);
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.2;
@@ -41,7 +41,7 @@
   gap: var(--static-space-8);
   margin: var(--static-space-4) 0 0;
   color: var(--neutral-weak);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .organizations {
@@ -88,9 +88,33 @@
 
 .takeaways ul {
   display: grid;
-  gap: var(--static-space-8);
+  gap: var(--static-space-4);
   margin: 0;
   padding-left: 1.25rem;
   color: var(--neutral-weak);
   line-height: 1.55;
+}
+
+.challengeTheme {
+  margin: 0;
+  color: var(--neutral-weak);
+  line-height: 1.5;
+}
+
+.takeaways .skillBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--static-space-8);
+  padding: 0;
+  list-style: none;
+}
+
+.skillBadges li {
+  padding: var(--static-space-4) var(--static-space-12);
+  border: 1px solid var(--neutral-alpha-weak);
+  border-radius: var(--radius-full);
+  background: var(--surface-background);
+  color: var(--neutral-weak);
+  font-size: 0.85rem;
+  line-height: 1.4;
 }

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { EventShowcaseEntry } from "@/resources/events";
 import { EventPhotoGallery } from "./EventPhotoGallery";
 import styles from "./EventShowcase.module.scss";
@@ -8,6 +7,9 @@ interface EventShowcaseProps {
 }
 
 export function EventShowcase({ event }: EventShowcaseProps) {
+  const softSkills =
+    event.softSkills.length > 0 ? event.softSkills : (event.softSkillBadges ?? []);
+
   return (
     <article className={styles.event}>
       <header className={styles.header}>
@@ -21,6 +23,8 @@ export function EventShowcase({ event }: EventShowcaseProps) {
           </span>
         </p>
       </header>
+
+      {event.photos.length > 0 && <EventPhotoGallery eventName={event.name} photos={event.photos} />}
 
       <dl className={styles.organizations}>
         <div>
@@ -41,17 +45,22 @@ export function EventShowcase({ event }: EventShowcaseProps) {
         )}
       </dl>
 
+      {event.challengeTheme && (
+        <section className={styles.takeaways}>
+          <h3>Challenge</h3>
+          <p className={styles.challengeTheme}>{event.challengeTheme}</p>
+        </section>
+      )}
+
       <p className={styles.participation}>
         <strong>My participation</strong>
         <span>{event.participation}</span>
       </p>
 
-      {event.photos.length > 0 && <EventPhotoGallery eventName={event.name} photos={event.photos} />}
-
       {event.knowledgeAcquired.length > 0 && (
         <section className={styles.takeaways}>
           <h3>Knowledge Acquired</h3>
-          <ul>
+          <ul className={styles.skillBadges}>
             {event.knowledgeAcquired.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -59,11 +68,11 @@ export function EventShowcase({ event }: EventShowcaseProps) {
         </section>
       )}
 
-      {event.softSkills.length > 0 && (
+      {softSkills.length > 0 && (
         <section className={styles.takeaways}>
-          <h3>Soft Skills Developed</h3>
-          <ul>
-            {event.softSkills.map((skill) => (
+          <h3>Soft skills</h3>
+          <ul className={styles.skillBadges}>
+            {softSkills.map((skill) => (
               <li key={skill}>{skill}</li>
             ))}
           </ul>

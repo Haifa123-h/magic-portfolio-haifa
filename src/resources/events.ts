@@ -20,6 +20,8 @@ export type EventShowcaseEntry = {
   photos: EventPhoto[];
   knowledgeAcquired: string[];
   softSkills: string[];
+  softSkillBadges?: string[];
+  challengeTheme?: string;
 };
 
 export const eventShowcases: EventShowcaseEntry[] = [
@@ -75,15 +77,107 @@ export const eventShowcases: EventShowcaseEntry[] = [
       },
     ],
     knowledgeAcquired: [
-      "Learned about a medical subfield from medical students and experts.",
-      "Explored how technology can be applied to a real-world challenge.",
-      "Most valuable takeaway: how to approach finding solutions to real-world challenges.",
+      "Medical subfields",
+      "Technology applications to real-world challenges",
+      "Problem-solving approaches",
     ],
     softSkills: [
-      "Presentation and communication: pitched the idea to a jury and discussed it with experts.",
-      "Adaptability and receptiveness to feedback: used panel and workshop feedback to improve the solution.",
-      "Teamwork: collaborated in an interdisciplinary group of computer-science and medical students.",
-      "Problem-solving: explored possible responses to a medical condition.",
+      "Presentation",
+      "Communication",
+      "Adaptability",
+      "Receptiveness to feedback",
+      "Teamwork",
+      "Problem-solving",
+    ],
+  },
+  {
+    id: "hack-tank",
+    name: "Hack Tank:",
+    type: "Youth innovation challenge",
+    date: "17–18 October 2026",
+    city: "Sousse, Tunisia",
+    venue: "Hotel L’Orient Palace",
+    organization: "JCI Sousse",
+    participation:
+      "With Team “Power Girls,” I worked through the night to shape a solution, then pitched and defended our project before a jury.",
+    challengeTheme: "Improve the quality of life of young people through innovative solutions.",
+    photos: [
+      {
+        src: "/images/events/hack-tank/event-photo-1.png",
+        alt: "Photo 1 from Team Power Girls’ Hack Tank: challenge in Sousse, Tunisia.",
+        width: 768,
+        height: 1024,
+      },
+      {
+        src: "/images/events/hack-tank/event-photo-2.png",
+        alt: "Photo 2 from Team Power Girls’ Hack Tank: challenge in Sousse, Tunisia.",
+        width: 768,
+        height: 1024,
+      },
+      {
+        src: "/images/events/hack-tank/event-photo-3.png",
+        alt: "Photo 3 from Team Power Girls’ Hack Tank: challenge in Sousse, Tunisia.",
+        width: 838,
+        height: 768,
+      },
+      {
+        src: "/images/events/hack-tank/event-photo-4.png",
+        alt: "Photo 4 from Team Power Girls’ Hack Tank: challenge in Sousse, Tunisia.",
+        width: 971,
+        height: 768,
+      },
+      {
+        src: "/images/events/hack-tank/event-photo-5.png",
+        alt: "Photo 5 from Team Power Girls’ Hack Tank: challenge in Sousse, Tunisia.",
+        width: 1024,
+        height: 768,
+      },
+    ],
+    knowledgeAcquired: [],
+    softSkills: ["Teamwork", "Public speaking", "Communication", "Idea defense"],
+  },
+  {
+    id: "cybersecurity-bootcamp",
+    name: "CyberAI: Cybersecurity AI Fundamentals",
+    type: "Cybersecurity bootcamp",
+    date: "10–31 October 2026 · 16 hours",
+    city: "Sousse, Tunisia",
+    venue: "AMIDEAST Sousse",
+    organization: "American Corner Sousse",
+    supportingOrganizations: ["U.S. Embassy Tunis"],
+    participation:
+      "Participated in the bootcamp, completed all labs and quizzes, interacted with the instructor, and worked with a team on a lab. Practical work included manual security investigation and AI-assisted workflows for investigating threats and securing a network.",
+    photos: [
+      {
+        src: "/images/events/cybersecurity-bootcamp/instructor-session.png",
+        alt: "An instructor points to a projected timeline while presenting to bootcamp participants.",
+        width: 768,
+        height: 1091,
+        caption: "Instructor-led session",
+      },
+      {
+        src: "/images/events/cybersecurity-bootcamp/participant-lab.png",
+        alt: "Bootcamp participants collaborate at a table with laptops during a practical session.",
+        width: 768,
+        height: 1029,
+        caption: "Participants working on a lab",
+      },
+    ],
+    knowledgeAcquired: [
+      "Threat detection",
+      "Security investigation",
+      "Incident management",
+      "Responsible AI-assisted analysis",
+      "Security automation",
+      "Manual and AI-assisted security workflows",
+    ],
+    softSkills: [
+      "Critical thinking",
+      "Analytical thinking",
+      "Problem-solving",
+      "Teamwork",
+      "Communication",
+      "Attention to detail",
     ],
   },
 ];

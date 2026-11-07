@@ -171,33 +171,37 @@ export default function About() {
             </Heading>
           </div>
           <div className={styles.certificationList}>
-            {aboutProfile.certifications.map(({ title, issuer, issueDate, verificationUrl }) => (
-              <article className={styles.certification} key={title}>
-                <Heading as="h3" variant="heading-strong-s">
-                  {title}
-                </Heading>
-                <dl className={styles.certificationDetails}>
-                  <div>
-                    <dt>Issued by</dt>
-                    <dd>{issuer}</dd>
-                  </div>
-                  <div>
-                    <dt>Issue date</dt>
-                    <dd>{issueDate}</dd>
-                  </div>
-                </dl>
-                <a
-                  className={styles.externalLink}
-                  href={verificationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Verify certificate: ${title} (opens in a new tab)`}
-                >
-                  Verify Certificate
-                  <Icon name="openLink" aria-hidden="true" />
-                </a>
-              </article>
-            ))}
+            {aboutProfile.certifications.map(({ title, issuer, issueDate, verificationUrl }) => {
+              const linkLabel = verificationUrl.startsWith("/") ? "View Certificate" : "Verify Certificate";
+
+              return (
+                <article className={styles.certification} key={title}>
+                  <Heading as="h3" variant="heading-strong-s">
+                    {title}
+                  </Heading>
+                  <dl className={styles.certificationDetails}>
+                    <div>
+                      <dt>Issued by</dt>
+                      <dd>{issuer}</dd>
+                    </div>
+                    <div>
+                      <dt>Issue date</dt>
+                      <dd>{issueDate}</dd>
+                    </div>
+                  </dl>
+                  <a
+                    className={styles.externalLink}
+                    href={verificationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${linkLabel}: ${title} (opens in a new tab)`}
+                  >
+                    {linkLabel}
+                    <Icon name="openLink" aria-hidden="true" />
+                  </a>
+                </article>
+              );
+            })}
           </div>
         </section>
 
