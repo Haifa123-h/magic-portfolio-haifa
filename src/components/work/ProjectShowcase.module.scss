@@ -45,6 +45,27 @@
   text-wrap: balance;
 }
 
+.projectMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--static-space-12) clamp(1.5rem, 4vw, 3rem);
+}
+
+.projectMeta p {
+  display: grid;
+  gap: var(--static-space-4);
+  margin: 0;
+  color: var(--neutral-weak);
+  line-height: 1.5;
+}
+
+.projectMeta strong,
+.contributions h3 {
+  color: var(--neutral-strong);
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
 .description {
   max-width: 70ch;
   margin: 0;
@@ -59,6 +80,24 @@
   display: grid;
   gap: var(--static-space-4);
   margin: 0;
+  color: var(--neutral-weak);
+  line-height: 1.55;
+}
+
+.contributions {
+  display: grid;
+  gap: var(--static-space-8);
+}
+
+.contributions h3 {
+  margin: 0;
+}
+
+.contributions ul {
+  display: grid;
+  gap: var(--static-space-8);
+  margin: 0;
+  padding-left: 1.25rem;
   color: var(--neutral-weak);
   line-height: 1.55;
 }

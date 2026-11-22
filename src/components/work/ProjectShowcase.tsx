@@ -48,6 +48,23 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
         <h2>{project.title}</h2>
       </header>
 
+      {(project.role || project.period) && (
+        <div className={styles.projectMeta}>
+          {project.role && (
+            <p>
+              <strong>Role</strong>
+              <span>{project.role}</span>
+            </p>
+          )}
+          {project.period && (
+            <p>
+              <strong>Period</strong>
+              <time>{project.period}</time>
+            </p>
+          )}
+        </div>
+      )}
+
       {project.context && (
         <p className={styles.context}>
           <strong>Project context</strong>
@@ -57,12 +74,21 @@ export function ProjectShowcase({ project }: ProjectShowcaseProps) {
 
       <p className={styles.description}>{project.description}</p>
 
-      {project.contribution && (
+      {project.contributions && project.contributions.length > 0 ? (
+        <section className={styles.contributions} aria-labelledby={`contributions-${project.slug}`}>
+          <h3 id={`contributions-${project.slug}`}>My contributions</h3>
+          <ul>
+            {project.contributions.map((contribution) => (
+              <li key={contribution}>{contribution}</li>
+            ))}
+          </ul>
+        </section>
+      ) : project.contribution ? (
         <p className={styles.contribution}>
           <strong>My contribution</strong>
           <span>{project.contribution}</span>
         </p>
-      )}
+      ) : null}
 
       {project.technologyGroups && project.technologyGroups.length > 0 ? (
         <section className={styles.stack} aria-labelledby={`stack-${project.slug}`}>

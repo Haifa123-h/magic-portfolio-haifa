@@ -33,6 +33,9 @@ export type ProjectShowcaseItem = {
   description: string;
   context?: string;
   contribution?: string;
+  role?: string;
+  period?: string;
+  contributions?: string[];
   technologies: ProjectTechnology[];
   technologyGroups?: ProjectTechnologyGroup[];
   completionDate?: string;
@@ -48,17 +51,37 @@ export const projectShowcase: ProjectShowcaseItem[] = [
     number: "01",
     slug: "university-exam-monitoring-system",
     category: "Academic group project",
-    title: "University Exam Monitoring System",
-    description: "A university exam monitoring system completed as an academic group project.",
-    context: "The Student Dashboard is one component of the larger group project.",
-    contribution: "Student Dashboard interface.",
+    title: "Agile V2 – Academic Management Platform",
+    description:
+      "A full-stack academic management platform supporting university operations through student, professor, and administrator dashboards.",
+    context:
+      "Collaborated on developing a full-stack academic management platform designed to streamline university operations through student, professor, and administrator dashboards, exam management, grade consultation, and academic services.",
+    role: "Full-Stack Development Team Contributor",
+    period: "2025–2026",
+    contributions: [
+      "Contributed to developing the student dashboard and frontend components using React and Tailwind CSS.",
+      "Worked on frontend-backend integration and displaying academic information.",
+      "Performed REST API testing using Postman to validate endpoints, responses, and authentication workflows.",
+      "Documented API endpoints and specifications using Swagger UI.",
+      "Participated in debugging and testing to improve application functionality and integration.",
+    ],
     technologies: [
       { name: "React", logo: "react" },
+      { name: "JavaScript", logo: "javascript" },
       { name: "Vite", logo: "vite" },
+      { name: "Tailwind CSS" },
+      { name: "Node.js" },
+      { name: "Express.js" },
+      { name: "PostgreSQL" },
+      { name: "Prisma" },
+      { name: "JWT" },
+      { name: "Postman" },
+      { name: "Swagger UI" },
+      { name: "Git" },
+      { name: "GitHub" },
+      { name: "VS Code" },
     ],
-    completionDate: "April 9, 2026",
-    completionDateTime: "2026-04-09",
-    repositoryUrl: "https://github.com/Haifa123-h/DashboardStudent.git",
+    repositoryUrl: "https://github.com/Haifa123-h/Agile-project",
     media: [
       {
         type: "video",
