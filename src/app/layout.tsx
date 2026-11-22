@@ -1,7 +1,7 @@
 import "@once-ui-system/core/css/styles.css";
 import "@once-ui-system/core/css/tokens.css";
 import "@/resources/custom.css";
-import type { Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import classNames from "classnames";
 
 import {
@@ -17,14 +17,25 @@ import {
 import { Footer, Header, RouteGuard, Providers } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home, person } from "@/resources";
 
-export async function generateMetadata() {
-  return Meta.generate({
-    title: home.title,
-    description: home.description,
-    baseURL: baseURL,
-    path: home.path,
-    image: home.image,
-  });
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    ...Meta.generate({
+      title: home.title,
+      description: home.description,
+      baseURL: baseURL,
+      path: home.path,
+      image: home.image,
+    }),
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
+        { url: "/favicon.svg", type: "image/svg+xml" },
+        { url: "/favicon.png", sizes: "64x64", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    },
+    manifest: "/manifest.webmanifest",
+  };
 }
 
 // viewport-fit=cover lets the bottom menu sit above the home indicator
@@ -33,6 +44,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#06131f",
 };
 
 export default async function RootLayout({
