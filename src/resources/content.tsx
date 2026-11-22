@@ -9,8 +9,8 @@ const person: Person = {
   role: "Software Engineering Student",
   avatar: "/avatar.jpg",
   cv: {
-    href: "/Haifa-Kechiche-CV.pdf",
-    filename: "Haifa-Kechiche-CV.pdf",
+    href: "/Haifa_Kechiche_CV_PFE_2027_EN.pdf",
+    filename: "Haifa_Kechiche_CV_PFE_2027_EN.pdf",
   },
   email: "kechichehaifa@gmail.com",
   location: "Africa/Tunis",
